@@ -77,6 +77,7 @@ THIRD_PARTY_APPS = [
     "leaflet",
     "mapbox_location_field",
     "django_filters",
+    "organizations",
 ]
 
 LOCAL_APPS = [
@@ -87,6 +88,7 @@ LOCAL_APPS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+ORGS_SLUGFIELD = 'django_extensions.db.fields.AutoSlugField'
 
 MAPBOX_KEY = env("MAPBOX_ACCESS_TOKEN")
 
