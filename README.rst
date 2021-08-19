@@ -1,7 +1,12 @@
 shipwell
 ========
+test for interview - not meant for production. In this demo I'm just using some state data from mapbox, I had intended to use some traffic accident data I got from the city of austin paired with a hex grid but it didn't quite fit into my schedule to finish that but the code still lives in there.
 
-test for interview - not meant for production.
+Here's a screen cast. Click the webm to download a higher quality version. 
+
+
+.. image:: https://github.com/millerhooks/shipwell/raw/main/docs/screencast.webm
+     :target: https://drive.google.com/file/d/1cHjoJV0ZUNQPD0a9yUjbkIvsvprN18Hr/view?usp=sharing
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter
      :target: https://github.com/pydanny/cookiecutter-django/
