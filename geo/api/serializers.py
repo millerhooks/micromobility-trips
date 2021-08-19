@@ -2,7 +2,16 @@ from django.contrib.gis.geos import Point
 from rest_framework import serializers
 from rest_framework_gis.serializers import GeoFeatureModelSerializer, GeometrySerializerMethodField
 
-from geo.models import AustinHex, TrafficIncident, State
+from geo.models import AustinHex, TrafficIncident, State, WeatherAPI
+import io
+from rest_framework.parsers import JSONParser
+import requests
+
+class WeatherAPISerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = WeatherAPI
+        fields = ['name', 'slug', 'url', 'data']
 
 class StateSerializer(GeoFeatureModelSerializer):
     density = serializers.DecimalField(max_digits=8, decimal_places=4)

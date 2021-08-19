@@ -1,8 +1,28 @@
 from django.contrib.gis.db import models
 from mapbox_location_field.spatial.models import SpatialLocationField  
+from django.utils.text import slugify
+import requests
  
 
-__admin__ = ['AustinHex', 'TrafficIncident', 'State']
+__admin__ = ['AustinHex', 'TrafficIncident', 'State', 'WeatherAPI']
+
+class WeatherAPI(models.Model):
+    name = models.CharField(max_length=100, blank=True, null=True)
+    slug = models.SlugField(max_length=150, blank=True, null=True)
+    url = models.URLField(max_length=255, blank=True, null=True)
+
+    @property
+    def data(self):
+        resp = requests.get(self.url)
+        return resp.text.strip('/n')
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(WeatherAPI, self).save(*args, **kwargs)
 
 class TrafficIncident(models.Model):
     ISSUE_REPORTED_CHOICES = [

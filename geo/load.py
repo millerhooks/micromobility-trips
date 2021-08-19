@@ -15,7 +15,6 @@ def load_states():
     import requests
     resp = requests.get('https://raw.githubusercontent.com/mapbox/mapboxgl-jupyter/master/examples/data/us-states.geojson')
     data = resp.json()
-    import pdb; pdb.set_trace()
     for x in data['features']:
         try:
             State.objects.get_or_create(name=x['properties']['name'], density=x['properties']['density'], shape=Polygon(x['geometry']['coordinates'][0]))
@@ -66,5 +65,6 @@ def load_accidents(remote=True, verbose=True):
         
         
 def load():
+    load_states()
     load_hexes()
     load_accidents()

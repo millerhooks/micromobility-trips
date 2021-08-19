@@ -38,6 +38,9 @@
       <script defer src="{% static 'js/project.js' %}"></script>
 
     {% endblock javascript %}
+    {% load mapbox_location_field_tags %} 
+    {% location_field_includes %}
+    {% include_jquery %}
 
   </head>
 

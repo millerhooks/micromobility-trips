@@ -6,21 +6,15 @@ from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework_gis.filters import InBBoxFilter
 
-from geo.models import AustinHex, TrafficIncident, State
-from .serializers import AustinHexSerializer, TrafficIncidentSerializer, StateSerializer
+from geo.models import AustinHex, TrafficIncident, State, WeatherAPI
+from .serializers import AustinHexSerializer, TrafficIncidentSerializer, StateSerializer, WeatherAPISerializer
 
-'''
-class RegionFilter(GeoFilterSet):
-    contains_geom = GeometryFilter(name='geom', lookup_expr='contains')
 
-    class Meta:
-        model = TrafficIncident
-        filterset_fields = []
+class WeatherAPIList(viewsets.ModelViewSet):
+    queryset = WeatherAPI.objects.all()
+    serializer_class = WeatherAPISerializer
+    lookup_field = 'slug'
 
-class GeojsonLocationList(generics.ListCreateAPIView):
-    # -- other omitted view attributes --- #
-    pagination_class = GeoJsonPagination
-'''
 
 class AustinHexList(viewsets.ModelViewSet):
     queryset = AustinHex.objects.all()

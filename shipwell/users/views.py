@@ -9,7 +9,6 @@ User = get_user_model()
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
-
     model = User
     slug_field = "username"
     slug_url_kwarg = "username"
@@ -21,7 +20,7 @@ user_detail_view = UserDetailView.as_view()
 class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     model = User
-    fields = ["name"]
+    fields = ["name", "location", "weather_service"]
     success_message = _("Information successfully updated")
 
     def get_success_url(self):
