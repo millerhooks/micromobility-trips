@@ -1,6 +1,6 @@
 shipwell
 ========
-test for interview - not meant for production. In this demo I'm just using some state data from mapbox, I had intended to use some traffic accident data I got from the city of austin paired with a hex grid but it didn't quite fit into my schedule to finish that but the code still lives in there.
+test for interview - not meant for production. In this demo I'm just using some state data from mapbox, I had intended to use some traffic accident data I got from the city of austin paired with a hex grid but it didn't quite fit into my schedule to finish that but the code still lives in there. Also if you want to run the code, you'll have to get your own mapbox API key.
 
 Here's a screen cast. Click the gif to download a higher quality version. 
 
@@ -8,6 +8,68 @@ Here's a screen cast. Click the gif to download a higher quality version.
      :target: https://drive.google.com/file/d/1cHjoJV0ZUNQPD0a9yUjbkIvsvprN18Hr/view?usp=sharing
 
 :License: MIT
+
+Quickstart
+----------
+
+::
+
+    $ docker-compose -f local.yml up -d
+    $ docker-compose -f local.yml run --rm django python manage.py migrate
+    [+] Running 1/0
+    ⠿ Container postgres  Running                                                                                                                                                                                                                                                                                                                                      0.0s
+    PostgreSQL is available
+    Operations to perform:
+      Apply all migrations: account, admin, auth, authtoken, contenttypes, geo, sessions, sites, socialaccount, users
+    Running migrations:
+      Applying contenttypes.0001_initial... OK
+      Applying contenttypes.0002_remove_content_type_name... OK
+      Applying auth.0001_initial... OK
+      Applying auth.0002_alter_permission_name_max_length... OK
+      Applying auth.0003_alter_user_emai
+    
+    ......
+    
+    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
+    $ docker-compose -f local.yml run --rm django python manage.py shell
+    Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+    PostgreSQL is available
+    Python 3.9.6 (default, Aug 17 2021, 02:38:04) 
+    Type 'copyright', 'credits' or 'license' for more information
+    IPython 7.26.0 -- An enhanced Interactive Python. Type '?' for help.
+
+    In [1]: from geo.load import load
+    
+    In [2]: load()
+    Saved: 359
+    Saved: 358
+    Saved: 357
+    Saved: 356
+    Saved: 355
+    
+    ......
+    
+    10682 | COLLISION - SAVED
+    10683 | Crash Urgent - SAVED
+    10684 | zSTALLED VEHICLE - SAVED
+    10685 | COLLISION - SAVED
+    10686 | Crash Urgent - SAVED
+    10687 | COLLISION WITH INJURY - SAVED
+    10688 | COLLISION - SAVED
+    10689 | COLLISION - SAVED
+    10690 | Crash Service - SAVED
+    10691 | COLLISION - SAVED
+    10692 | Crash Service - SAVED
+
+    ......
+    
+    232730 | Traffic Hazard - SAVED
+    232731 | COLLISION WITH INJURY - SAVED
+    232732 | Traffic Hazard - SAVED
+
+    In [3]: 
+    Do you really want to exit ([y]/n)? 
+
 
 Settings
 --------
