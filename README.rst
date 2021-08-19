@@ -4,7 +4,7 @@ test for interview - not meant for production. In this demo I'm just using some 
 
 Here's a screen cast. Click the gif to download a higher quality version. 
 
-.. image:: https://github.com/millerhooks/shipwell/raw/main/docs/screencast.gif
+.. image:: https://github.com/millerhooks/shipwell/raw/main/docs/shipwell.gif
      :target: https://drive.google.com/file/d/1cHjoJV0ZUNQPD0a9yUjbkIvsvprN18Hr/view?usp=sharing
 
 :License: MIT
