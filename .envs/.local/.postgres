@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=shipwell
+POSTGRES_USER=bACEIufVVqMSCowpFjkLbJakQiJhrBrf
+POSTGRES_PASSWORD=1ZxvzBUTSRn4Ax1om9hH4kuQ61TdgXQad5G9oKHebr6YXkRs9GTGZt8y8RFBbaeE

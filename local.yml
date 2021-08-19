@@ -1,0 +1,50 @@
+version: '3'
+
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: shipwell_local_django
+    container_name: django
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app:z
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
+      - ./.envs/.production/.notebooks
+    ports:
+      - "8000:8000"
+    command: /start
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: shipwell_production_postgres
+    container_name: postgres
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data:Z
+      - local_postgres_data_backups:/backups:z
+    env_file:
+      - ./.envs/.local/.postgres
+
+  notebooks:
+    build:
+      context: .
+      dockerfile: ./compose/local/notebooks/Dockerfile
+    image: shipwell_local_notebooks
+    container_name: notebooks
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/home/jovyan/work
+    command: start-notebook.sh --NotebookApp.token=""
+    env_file:
+      - ./.envs/.production/.notebooks
