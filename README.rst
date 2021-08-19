@@ -4,9 +4,9 @@ test for interview - not meant for production. In this demo I'm just using some 
 
 Here's a screen cast. Click the webm to download a higher quality version. 
 
-
-.. image:: https://github.com/millerhooks/shipwell/raw/main/docs/screencast.webm
+.. image:: https://github.com/millerhooks/shipwell/blob/main/docs/screencast.webm?raw=true
      :target: https://drive.google.com/file/d/1cHjoJV0ZUNQPD0a9yUjbkIvsvprN18Hr/view?usp=sharing
+
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter
      :target: https://github.com/pydanny/cookiecutter-django/
